@@ -1,10 +1,19 @@
 angular.module('directives.commander', [])
 
-.controller('commanderCtrl', function ($scope){
+.controller('commanderCtrl', function ($scope, Requests){
   // we have a scope
-  $scope.fieldView = ['bourne', 'stiles'];
+  $scope.fieldView = [];
+
+  $scope.refreshFieldView = function (){
+    var data = Requests.getAllDirs();
+    console.log('refreshFieldView: ', data)
+  }
 
   $scope.addDirective = function (directive){
-    $scope.fieldView.push(directive);
+    console.log('addDirective', directive)
+    Requests.addDirective(directive);
+    $scope.refreshFieldView()
   }
+
+
 })

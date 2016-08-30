@@ -1,6 +1,7 @@
 angular.module('directives', [
   'directives.commander',
   'directives.agent',
+  'directives.services',
   'ui.router'
   ])
 .config(function ($stateProvider, $urlRouterProvider) {

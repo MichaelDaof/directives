@@ -1,9 +1,22 @@
 .field-view {
+	display: block;
 	height: 400px;
+	background-color: #87CEFA;
+}
+
+.field-view-agent {
+	display: block;
+	height: 200px;
 	background-color: #87CEFA;
 }
 
 .directive {
 	height: 75px;
 	background-color: pink;
+}
+
+.hitlist {
+	display: block;
+	height: 150px,
+	background-color: #D8BFD8;
 }
