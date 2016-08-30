@@ -1,5 +1,5 @@
 {
-  "name": "2016-07-solo",
+  "name": "directives",
   "version": "1.0.0",
   "description": "Directives for field teams",
   "main": "index.js",
@@ -16,9 +16,9 @@
   "author": "Michael Daof",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MichaelDaof/2016-07-solo/issues"
+    "url": "https://github.com/MichaelDaof/directives/issues"
   },
-  "homepage": "https://github.com/MichaelDaof/2016-07-solo#readme",
+  "homepage": "https://github.com/MichaelDaof/directives#readme",
   "dependencies": {
     "bower": "^1.7.9",
     "express": "^4.14.0",
