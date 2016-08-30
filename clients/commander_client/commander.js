@@ -5,7 +5,6 @@ angular.module('directives.commander', [])
   $scope.fieldView = ['bourne', 'stiles'];
 
   $scope.addDirective = function (directive){
-    $scope.field.push(directive);
-
+    $scope.fieldView.push(directive);
   }
 })

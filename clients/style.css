@@ -2,3 +2,8 @@
 	height: 400px;
 	background-color: #87CEFA;
 }
+
+.directive {
+	height: 75px;
+	background-color: pink;
+}

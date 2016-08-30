@@ -3,10 +3,16 @@
 	<!-- some cool angular input directive -->
 	<!-- fieldview div... big box if possible -->
 	<div class="col-md-9 field-view">
-		<div class="col-md-1 directive" ng-repeat="item in fieldView">
-			{{item}}
+		<div ng-repeat="item in fieldView">
+			<div class="col-sm-1 directive">{{item}}</div>
 		</div>
 	</div>
-	<input/>
+	<form ng-submit="addDirective(toAdd)">
+	  <input ng-model="toAdd"/>
+	  <input type="submit"/>
+	</form>
+
+	<!-- build views of agents. another repeater from state -->
+
 
 </div>
