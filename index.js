@@ -1,9 +1,11 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var router = require('./router.js')
+var router = require('./router.js');
+
 
 var app = express();
 
+app.use('/',  express.static(__dirname + '/'));
 mongoose.connect('mongodb://localhost/directives');
 router(app);
 
