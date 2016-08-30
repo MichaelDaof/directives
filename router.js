@@ -6,14 +6,15 @@ module.exports = function router(app){
     // clients? or only user-input GETs and POSTS?
 
   var teamLoad = {
+    liveCount: 0,
     teamName: {
-      directives: 0
+      directives: [],
     }
   };
 
   app.get('/', function index(req, res){
-    teamLoad.teamName.directives++
+    teamLoad.liveCount++
     res.sendFile(__dirname + '/clients/index.html');
-    console.log(teamLoad.teamName.directives)
+    console.log(teamLoad.liveCount)
   })
 };

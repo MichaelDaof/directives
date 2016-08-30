@@ -1,5 +1,6 @@
 angular.module('directives', [
   'directives.commander',
+  'directives.agent',
   'ui.router'
   ])
 .config(function ($stateProvider, $urlRouterProvider) {
@@ -11,6 +12,10 @@ angular.module('directives', [
     .state('commander', {
       templateUrl: 'clients/commander_client/commander.html',
       controller: 'commanderCtrl'
+    })
+    .state('agent', {
+      templateUrl: 'clients/agent_client/agent.html',
+      controller: 'agentCtrl'
     })
 
   $urlRouterProvider.otherwise('/')
