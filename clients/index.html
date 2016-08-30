@@ -8,11 +8,15 @@
 <body>
 	<div ui-view></div>
 
+	<script src="socket.io/socket.io.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	<script src="clients/app.js"></script>
 	<script src="clients/commander_client/commander.js"></script>
 	<script src="clients/agent_client/agent.js"></script>
 	<script src="clients/services.js"></script>
+	<script>
+		var socket = io();
+	</script>
 </body>
 </html>

@@ -1,19 +1,36 @@
 var path = require('path');
 
-module.exports = function router(app){
+module.exports = function router(app, io){
   // routes
     // to db
     // clients? or only user-input GETs and POSTS?
 
-  // stand in database
-  // will be used in future as a cache for users
+
+  // stand in for database
+  // will be used in future as a cache for users along side DB
   var teamLoad = {
-    liveCount: 0,
+    liveCount: 0, // utility counter to test memory persistence 
     team: {
       name: 'Blackbriar',
       directives: [],
     }
   };
+
+  io.on('connection', function(socket){
+    console.log('a user connected: ');
+    // need to fix client before emitting on connection
+    io.emit('directivesState', teamLoad.team.directives)
+    socket.on('addDirective', function (data){
+      teamLoad.team.directives.push(data)
+      console.log(teamLoad.team.directives)
+      io.emit('directivesState', teamLoad.team.directives)
+    })
+  });
+
+  // io.on('updateDirectives', function (client){
+
+  // })
+
 
   app.get('/', function index(req, res){
     teamLoad.liveCount++
@@ -26,9 +43,4 @@ module.exports = function router(app){
     console.log('POST commander/add-dir: ', teamLoad.team.directives)
     res.end()
   });
-
-  app.get('api/get-all', function (req, res){
-    console.log('GET /get-all: ', teamLoad.team.directives)
-    res.json(teamLoad.team.directives)
-  })
 };
