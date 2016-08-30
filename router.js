@@ -12,19 +12,27 @@ module.exports = function router(app, io){
     liveCount: 0, // utility counter to test memory persistence 
     team: {
       name: 'Blackbriar',
-      directives: [],
+      directives: {},
     }
   };
 
   io.on('connection', function(socket){
     console.log('a user connected: ');
     // need to fix client before emitting on connection
-    io.emit('directivesState', teamLoad.team.directives)
+    io.emit('directivesState', teamLoad.team.directives);
+
     socket.on('addDirective', function (data){
-      teamLoad.team.directives.push(data)
-      console.log(teamLoad.team.directives)
+      teamLoad.team.directives[data] = data
+      console.log('addDirective router ', teamLoad.team.directives)
       io.emit('directivesState', teamLoad.team.directives)
+    });
+    socket.on('claimDirective', function (key){
+      console.log('claimDirective router key: ', key)
+      delete teamLoad.team.directives[key];
+      io.emit('directivesState', teamLoad.team.directives);
+      console.log('claimDirective router state: ', teamLoad.team.directives)
     })
+
   });
 
   // io.on('updateDirectives', function (client){

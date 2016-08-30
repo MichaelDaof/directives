@@ -4,6 +4,7 @@ angular.module('directives.commander', [])
 
   $scope.addDirective = function (directive){
     socket.emit('addDirective', directive)
+    $scope.toAdd = "";
   };
 
   socket.on('directivesState', function (data){

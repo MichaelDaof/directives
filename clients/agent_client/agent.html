@@ -6,8 +6,8 @@
 	<div class="col-md-4 hitlist">hi</div>
 	
 	<div class="col-md-9 field-view-agent">
-		<div ng-repeat="item in fieldView" ng-click="grab($index)">
-			<div class="col-md-1 directive">{{item}}</div>
+		<div ng-repeat="(key, value) in fieldView" ng-click="claim(key, value)">
+			<div class="col-md-1 directive">{{value}}</div>
 		</div>
 	</div>
 
