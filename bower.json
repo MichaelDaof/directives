@@ -1,0 +1,24 @@
+{
+  "name": "2016-07-solo",
+  "description": "Directives for field teams",
+  "main": "index.js",
+  "authors": [
+    "Michael Daof"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "?"
+  ],
+  "homepage": "https://github.com/MichaelDaof/2016-07-solo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1"
+  }
+}
