@@ -13,6 +13,14 @@ module.exports = function router(app, io){
     team: {
       name: 'Blackbriar',
       directives: {},
+      agents: {
+        jackal : {
+          status: '#D8BFD8'
+        },
+        carlos: {
+          status: '#D8BFD8'
+        }
+      }
     }
   };
 
@@ -31,6 +39,10 @@ module.exports = function router(app, io){
       delete teamLoad.team.directives[key];
       io.emit('directivesState', teamLoad.team.directives);
       console.log('claimDirective router state: ', teamLoad.team.directives)
+    });
+    socket.on('getAgents', function (){
+      console.log('getAgents')
+      socket.emit('sendAgents', teamLoad.team.agents)
     })
 
   });

@@ -1,7 +1,7 @@
 angular.module('directives.services', [])
 
 .factory('Requests', function ($http){
-  var socket = window.socket;
+  // var socket = window.socket;
   var addDirective = function (dir){
     return $http({
       method: 'POST',

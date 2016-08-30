@@ -12,11 +12,18 @@
 
 .directive {
 	height: 75px;
-	background-color: pink;
+	margin: 7px;
+	background-color: yellow;
 }
 
 .hitlist {
 	display: block;
-	height: 150px,
+	height: 400px;
 	background-color: #D8BFD8;
+}
+
+.agent {
+	height: 200px;
+	background-color: #D8BFD8;
+	margin: 10px;
 }
