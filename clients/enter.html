@@ -2,5 +2,9 @@
 
 <div>
 	<a ui-sref="commander">Commander</a>
-	<a ui-sref="agent">agent</a>	
+	<p>Enter Agent:</p>
+	<form ng-submit="createAgent(newAgent)">
+	  <input ng-model="newAgent" placeholder="Agent Name" />
+	  <input type="submit"/>
+	</form>	
 </div>

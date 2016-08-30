@@ -13,14 +13,7 @@ module.exports = function router(app, io){
     team: {
       name: 'Blackbriar',
       directives: {},
-      agents: {
-        jackal : {
-          status: '#D8BFD8'
-        },
-        carlos: {
-          status: '#D8BFD8'
-        }
-      }
+      agents: {}
     }
   };
 
@@ -43,6 +36,11 @@ module.exports = function router(app, io){
     socket.on('getAgents', function (){
       console.log('getAgents')
       socket.emit('sendAgents', teamLoad.team.agents)
+    })
+    socket.on('newAgent', function (agent){
+      teamLoad.team.agents[agent.name] = agent;
+      io.emit('sendAgents', teamLoad.team.agents);
+      console.log('newAgent received: ', agent, "\nagents\n", teamLoad.team.agents )
     })
 
   });

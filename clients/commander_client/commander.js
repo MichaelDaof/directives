@@ -14,6 +14,7 @@ angular.module('directives.commander', [])
 
   socket.on('connect', function (){
     socket.emit('getAgents')
+    console.log('connect')
   })
 
   socket.on('sendAgents', function (agents){

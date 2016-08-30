@@ -2,13 +2,15 @@ angular.module('directives', [
   'directives.commander',
   'directives.agent',
   'directives.services',
+  'directives.enter',
   'ui.router'
   ])
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('enter', {
       url: '/',
-      templateUrl: 'clients/enter.html'
+      templateUrl: 'clients/enter.html',
+      controller: 'enterCtrl'
     })
     .state('commander', {
       templateUrl: 'clients/commander_client/commander.html',
