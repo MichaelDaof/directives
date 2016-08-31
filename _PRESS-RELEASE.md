@@ -16,29 +16,20 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
  
-## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+## Directives ##
+  > A customizable task runner for field teams.
 
-## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+## When not in personal contact ##
+  > Directives keeps the remote players in-step untill you hit your next meeting point.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Not all aspects of team-communication can be performed with simple assignment of tasks, but the reality as there's still a boatload of important administrative duties still to be had. The commander/agent/field view structure makes this an ideal choice for teams with strong individual roles. Customization makes it ideal for games and organizing social events.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Most communication platforms lack focus to give your communication flow and character. There's tons of communication power out there, but not very much purpose.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Directives brings teams a way to settle the administrative task of managing remote field players and encourages them to focus on the goals. Team member relationships can be defined in Directives, and then can collectively view the Field Map to align the team state of mind.
 
-## Quote from You ##
-  > A quote from a spokesperson in your company.
-
-## How to Get Started ##
-  > Describe how easy it is to get started.
-
-## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-
-## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+---
+Currently in protype production
