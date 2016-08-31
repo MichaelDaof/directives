@@ -37,5 +37,12 @@ angular.module('directives.services', [])
       })
     }
   };
+})
+.directive('dr-agentStatus', function (){
+  return {
+    link: function(scope, elements, attrs){
+      attrs.$set('background-color', scope.agent.status)
+    }
+  }
 });
 

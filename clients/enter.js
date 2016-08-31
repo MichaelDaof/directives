@@ -4,7 +4,8 @@ angular.module('directives.enter', [])
   $scope.createAgent = function (name){
     var agent = {
       name: $scope.newAgent,
-      status: '#D8BFD8'
+      status: '#D8BFD8',
+      directive: null
     }
     $rootScope.agent = agent;
     socket.emit('newAgent', agent)

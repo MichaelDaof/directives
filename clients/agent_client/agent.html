@@ -3,10 +3,10 @@
 	<h1>{{agent.name}}</h1>
 	<!-- some cool angular input directive -->
 	<!-- fieldview div... big box if possible -->
-	<div class="col-md-4 hitlist">hi</div>
+	<div class="col-md-4 hitlist" ng-style="{'background-color': agent.status}">{{agent.directive}}</div>
 	
 	<div class="col-md-9 field-view-agent">
-		<div ng-repeat="(key, value) in fieldView" ng-click="claim(key, value)">
+		<div ng-repeat="(key, value) in fieldView" ng-click="claim(key, value)" >
 			<div class="col-md-1 directive">{{value}}</div>
 		</div>
 	</div>

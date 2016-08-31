@@ -14,7 +14,10 @@
 
 	<!-- build views of agents. another repeater from state -->
 	<div ng-repeat="(key, value) in agentList">
-		<div class="col-lg-3 agent">{{value.name}}</div>
+		<div class="col-lg-3 agent" ng-style="{'background-color': value.status}">
+			<h2>{{value.name}}</h2>
+			<h4>{{value.directive}}</h4>
+		</div>
 	</div>
 
 </div>

@@ -34,14 +34,22 @@ module.exports = function router(app, io){
       console.log('claimDirective router state: ', teamLoad.team.directives)
     });
     socket.on('getAgents', function (){
-      console.log('getAgents')
       socket.emit('sendAgents', teamLoad.team.agents)
-    })
+    });
     socket.on('newAgent', function (agent){
       teamLoad.team.agents[agent.name] = agent;
       io.emit('sendAgents', teamLoad.team.agents);
       console.log('newAgent received: ', agent, "\nagents\n", teamLoad.team.agents )
-    })
+    });
+    socket.on('agentUpdate', function (agent){
+      teamLoad.team.agents[agent.name].status = agent.status;
+      teamLoad.team.agents[agent.name].directive = agent.directive;
+      io.emit('sendAgents', teamLoad.team.agents)
+    });
+    socket.on('stateChange', function (){
+      socket.emit('sendAgents', teamLoad.team.agents);
+      socket.emit('directivesState', teamLoad.team.directives)
+    });
 
   });
 

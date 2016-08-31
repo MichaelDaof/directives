@@ -12,11 +12,6 @@ angular.module('directives.commander', [])
     console.log('received on directivesState', data)
   })
 
-  socket.on('connect', function (){
-    socket.emit('getAgents')
-    console.log('connect')
-  })
-
   socket.on('sendAgents', function (agents){
     console.log(agents)
     $scope.agentList = agents;

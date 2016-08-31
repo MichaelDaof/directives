@@ -1,11 +1,13 @@
 // agent controller
 angular.module('directives.agent', [])
 
-.controller('agentCtrl', function ($scope, socket){
+.controller('agentCtrl', function ($scope, $rootScope, socket){
   // we have a scope
   $scope.claim = function (key, value){
-    console.log('agent controller claim: ', key, value);
-    socket.emit('claimDirective', key)
+    $rootScope.agent.status = 'yellow';
+    $rootScope.agent.directive = value;
+    socket.emit('claimDirective', key);
+    socket.emit('agentUpdate', $rootScope.agent); 
   }
   socket.on('directivesState', function (data){
     $scope.fieldView = data;
