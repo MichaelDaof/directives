@@ -1,7 +1,7 @@
 # Directives
 A Task Dispatcher for Teams
 
-Directives is used asymmetrically with one two different clients. The first client acts as a command post and has a view of the whole team and all the directives, then the all other users work with the agent client to recieve and send data/confirmation/status back to the  command post. Then all the clients a single Field View that can be edited by the user at command post. 
+Talk to eachother. Asymetrically. Cuz sometimes different roles require different access. Utilizes two clients. One client has access to the all team members as well as being able to manage the team board. All other team members use the agent client to manage their own individual roles in respect to the total team objectives.
 
 Good for social games too.
 
