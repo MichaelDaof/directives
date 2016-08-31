@@ -8,6 +8,10 @@ angular.module('directives.agent', [])
     $rootScope.agent.directive = value;
     socket.emit('claimDirective', key);
     socket.emit('agentUpdate', $rootScope.agent); 
+  };
+  $scope.complete = function (){
+    $rootScope.agent.status = 'green';
+    socket.emit('agentUpdate', $rootScope.agent);
   }
   socket.on('directivesState', function (data){
     $scope.fieldView = data;
