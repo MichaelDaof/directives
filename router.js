@@ -1,15 +1,11 @@
 var path = require('path');
 
 module.exports = function router(app, io){
-  // routes
-    // to db
-    // clients? or only user-input GETs and POSTS?
-
 
   // stand in for database
-  // will be used in future as a cache for users along side DB
+  // will be used in future as a cache for active teams along side DB
   var teamLoad = {
-    liveCount: 0, // utility counter to test memory persistence 
+    liveCount: 0, // dev: utility counter to monitor cache activity
     team: {
       name: 'Blackbriar',
       directives: {},
@@ -17,35 +13,41 @@ module.exports = function router(app, io){
     }
   };
 
+  // TODO: build websocket connection tracker
   io.on('connection', function(socket){
     console.log('a user connected: ');
-    // need to fix client before emitting on connection
+    // Update all on every new connect
     io.emit('directivesState', teamLoad.team.directives);
-
+    // For commander client to add to to team-view
     socket.on('addDirective', function (data){
       teamLoad.team.directives[data] = data
       console.log('addDirective router ', teamLoad.team.directives)
       io.emit('directivesState', teamLoad.team.directives)
     });
+    // For agent client to claim from team-view
     socket.on('claimDirective', function (key){
       console.log('claimDirective router key: ', key)
       delete teamLoad.team.directives[key];
       io.emit('directivesState', teamLoad.team.directives);
       console.log('claimDirective router state: ', teamLoad.team.directives)
     });
+    // For commander client to get all agents
     socket.on('getAgents', function (){
       socket.emit('sendAgents', teamLoad.team.agents)
     });
+    // For commander client to get new agent signin
     socket.on('newAgent', function (agent){
       teamLoad.team.agents[agent.name] = agent;
       io.emit('sendAgents', teamLoad.team.agents);
       console.log('newAgent received: ', agent, "\nagents\n", teamLoad.team.agents )
     });
+    // team listen for update agent status
     socket.on('agentUpdate', function (agent){
       teamLoad.team.agents[agent.name].status = agent.status;
       teamLoad.team.agents[agent.name].directive = agent.directive;
       io.emit('sendAgents', teamLoad.team.agents)
     });
+    // team listen for agent update status
     socket.on('stateChange', function (){
       socket.emit('sendAgents', teamLoad.team.agents);
       socket.emit('directivesState', teamLoad.team.directives)
@@ -53,20 +55,15 @@ module.exports = function router(app, io){
 
   });
 
-  // io.on('updateDirectives', function (client){
-
-  // })
-
-
   app.get('/', function index(req, res){
     teamLoad.liveCount++
     res.sendFile(__dirname + '/clients/index.html');
+    // cache monitor
     console.log(teamLoad.liveCount)
   });
 
   app.post('/api/commander/add-dir', function (req, res){
     teamLoad.team.directives.push(req.body.dir)
-    console.log('POST commander/add-dir: ', teamLoad.team.directives)
     res.end()
   });
 };

@@ -14,11 +14,6 @@ var bodyParser = require('body-parser');
 
 app.use('/',  express.static(__dirname + '/'));
 app.use(bodyParser.json())
-// websocket
-// io.on('connection', function(socket){
-//   console.log('a user connected: ');
-// });
-// Don't really understand this pattern, but it seems to work
 router(app, io);
 
 var port = process.env.PORT || 3000;

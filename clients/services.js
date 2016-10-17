@@ -1,7 +1,7 @@
 angular.module('directives.services', [])
 
 .factory('Requests', function ($http){
-  // var socket = window.socket;
+
   var addDirective = function (dir){
     return $http({
       method: 'POST',
@@ -14,12 +14,12 @@ angular.module('directives.services', [])
     addDirective: addDirective
   }
 })
-// attempt socket.io angular side
+// Initiate socket.io here
 .factory('socket', function ($rootScope) {
   var socket = io.connect();
   return {
     on: function (eventName, callback) {
-      socket.on(eventName, function () {  
+      socket.on(eventName, function () {
         var args = arguments;
         $rootScope.$apply(function () {
           callback.apply(socket, args);
@@ -45,4 +45,3 @@ angular.module('directives.services', [])
     }
   }
 });
-
