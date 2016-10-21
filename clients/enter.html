@@ -1,10 +1,13 @@
-<h1>Welcome to Directives | Task Dispatch for Field Teams</h1>
+<h1 class="jumbotron">Welcome to Directives | Task Dispatch for Field Teams</h1>
 
 <div>
-	<a ui-sref="commander">Commander</a>
-	<p>Enter Agent:</p>
+  <h2>Team leaders go here</h2>
+	<a ui-sref="commander">Commander View</a>
+</div>
+<div>
+  <h2>Agents enter name</h2>
 	<form ng-submit="createAgent(newAgent)">
 	  <input ng-model="newAgent" placeholder="Agent Name" />
 	  <input type="submit"/>
-	</form>	
+	</form>
 </div>
