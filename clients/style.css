@@ -7,6 +7,10 @@
   display: flex;
   flex-direction: column;
 }
+#instructions {
+  margin: 50px;
+  font-size: large;
+}
 .field-view {
 	display: block;
 	height: 400px;
