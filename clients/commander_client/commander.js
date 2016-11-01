@@ -2,6 +2,11 @@ angular.module('directives.commander', [])
 
 .controller('commanderCtrl', function ($scope, Requests, socket){
 
+  //// INIT /////////////
+  socket.emit('getAgents')
+  socket.emit('refresh')
+  ///////////////////////
+
   // create jobs for all team
   $scope.addDirective = function (directive){
     socket.emit('addDirective', directive)

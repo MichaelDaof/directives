@@ -1,23 +1,30 @@
-<div>
+<div class="vertical">
 	<h1>Dispatcher View</h1>
 	<!-- some cool angular input directive -->
 	<!-- fieldview div... big box if possible -->
-	<div class="col-md-10 field-view">
-		<div ng-repeat="item in fieldView">
-			<div class="col-sm-1 directive">{{item}}</div>
-		</div>
-	</div>
-	<form ng-submit="addDirective(toAdd)">
-	  <input ng-model="toAdd" placeholder="Add Directive" />
-	  <input type="submit"/>
-	</form>
+  <div>
+    <div class="col-lg-12 field-view">
+      <h2>Unclaimed objectives</h2>
+      <div ng-repeat="item in fieldView">
+        <div class="col-sm-1 directive">{{item}}</div>
+      </div>
+    </div>
+    <form ng-submit="addDirective(toAdd)">
+      <h3>Add some objectives for you agents to claim</h3>
+      <input ng-model="toAdd" placeholder="Add Objective" />
+      <input type="submit"/>
+    </form>
+  </div>
 
 	<!-- build views of agents. another repeater from state -->
-	<div ng-repeat="(key, value) in agentList">
-		<div class="col-lg-3 agent" ng-style="{'background-color': value.status}">
-			<h2>{{value.name}}</h2>
-			<h4>{{value.directive}}</h4>
-		</div>
-	</div>
+  <div>
+    <h2>Agents</h2>
+    <div ng-repeat="(key, value) in agentList">
+      <div class="col-lg-3 agent" ng-style="{'background-color': value.status}">
+        <h2>{{value.name}}</h2>
+        <h4>{{value.directive}}</h4>
+      </div>
+    </div>
+  </div>
 
 </div>

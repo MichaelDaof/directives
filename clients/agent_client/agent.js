@@ -2,6 +2,9 @@
 angular.module('directives.agent', [])
 
 .controller('agentCtrl', function ($scope, $rootScope, socket){
+
+  socket.emit('refresh')
+
   // status update for accepting jobs
   $scope.claim = function (key, value){
     $rootScope.agent.status = 'yellow';

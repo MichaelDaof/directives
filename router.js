@@ -18,6 +18,10 @@ module.exports = function router(app, io){
     console.log('a user connected: ');
     // Update all on every new connect
     io.emit('directivesState', teamLoad.team.directives);
+    socket.on('refresh', function (){
+      console.log("Refreshing")
+      socket.emit('directivesState', teamLoad.team.directives)
+    })
     // For commander client to add to to team-view
     socket.on('addDirective', function (data){
       teamLoad.team.directives[data] = data

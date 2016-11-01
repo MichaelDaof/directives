@@ -3,10 +3,12 @@
 	<h1>{{agent.name}}</h1>
 	<!-- fieldview div... big box if possible -->
 	<div class="hitlist" ng-style="{'background-color': agent.status}">
-		<h4 ng-click="complete()">{{agent.directive}}</h4>
+    <h2>Your list of objectives</h2>
+		<h4 ng-click="complete()" class="btn btn-outline-success">{{agent.directive}}</h4>
 	</div>
 
 	<div class="field-view-agent">
+    <h2>Select an objective</h2>
 		<div ng-repeat="(key, value) in fieldView" ng-click="claim(key, value)" >
 			<div class="col-md-1 directive">{{value}}</div>
 		</div>
