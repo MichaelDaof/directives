@@ -3,7 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http)
 // server config
-var router = require('./router.js');
+var router = require('./server/router.js');
 var bodyParser = require('body-parser');
 
 // TODO: mongoDB for future development
