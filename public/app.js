@@ -9,20 +9,24 @@ angular.module('directives', [
   $stateProvider
     .state('enter', {
       url: '/',
-      templateUrl: 'clients/enter.html',
+      templateUrl: 'public/enter.html',
       controller: 'enterCtrl'
     })
     .state('commander', {
-      templateUrl: 'clients/commander_client/commander.html',
+      templateUrl: 'public/commander_client/commander.html',
       controller: 'commanderCtrl'
     })
     .state('agent', {
-      templateUrl: 'clients/agent_client/agent.html',
+      templateUrl: 'public/agent_client/agent.html',
       controller: 'agentCtrl'
+    })
+    .state('portal', {
+      templateUrl: 'public/portal.html',
+      controller: 'portalCtrl'
     })
 
   $urlRouterProvider.otherwise('/')
-  
+
 })
 .controller('masterCtrl', function ($rootScope, socket){
   $rootScope.$on('$stateChangeStart', function (event){

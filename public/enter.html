@@ -1,0 +1,34 @@
+<div>
+  <div class="jumbotron">
+    <h1>Welcome to TeamTalk | Task Dispatch for Field Teams</h1>
+  </div>
+
+  <div class="enter">
+
+    <article id="team container">
+      <h2>What Team are you on?</h2>
+      <form ng-submit="goTeam(teamName)">
+        <input name="name" placeholder="Enter Team Name" ng-model="teamName">
+      </form>
+    </article>
+
+
+    <blockquote id="instructions" class="container">
+      <p>Starting is easy. Enter your team name, then pick whether you're an
+        team leader or team member.</p>
+    </blockquote>
+
+  </div>
+</div>
+
+<!-- <div class="col-md-5">
+<h2>Team leaders go here</h2>
+<a ui-sref="commander" class="btn btn-primary">Commander View</a>
+</div>
+<div class="col-md-5">
+<h2>Agents enter name</h2>
+<form ng-submit="createAgent(newAgent)">
+<input ng-model="newAgent" placeholder="Agent Name" />
+<input type="submit"/>
+</form>
+</div> -->

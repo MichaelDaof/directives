@@ -1,4 +1,5 @@
 var path = require('path');
+var teamHandler = require('./server/handlers/teamHandler')
 
 module.exports = function router(app, io){
 
@@ -15,7 +16,7 @@ module.exports = function router(app, io){
 
   // TODO: build websocket connection tracker
   io.on('connection', function(socket){
-    console.log('a user connected: ');
+    console.log('a user connected: ', socket.id);
     // Update all on every new connect
     io.emit('directivesState', teamLoad.team.directives);
     socket.on('refresh', function (){
@@ -59,15 +60,13 @@ module.exports = function router(app, io){
 
   });
 
-  app.get('/', function index(req, res){
+  app.get('/', function (req, res){
     teamLoad.liveCount++
-    res.sendFile(__dirname + '/clients/index.html');
+    res.sendFile(__dirname + '/public/index.html');
     // cache monitor
     console.log(teamLoad.liveCount)
   });
 
-  app.post('/api/commander/add-dir', function (req, res){
-    teamLoad.team.directives.push(req.body.dir)
-    res.end()
-  });
+  app.post('/api/:team', teamHandler.enter)
+
 };

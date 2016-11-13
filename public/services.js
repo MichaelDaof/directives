@@ -1,17 +1,17 @@
 angular.module('directives.services', [])
 
-.factory('Requests', function ($http){
+.factory('Requests', function ($http, $rootScope){
 
-  var addDirective = function (dir){
+  var startTeam = function (name){
+    $rootScope.team = name;
     return $http({
       method: 'POST',
-      url: 'api/commander/add-dir',
-      data: {dir: dir}
+      url: `/api/${name}`,
     })
-  };
+  }
 
   return {
-    addDirective: addDirective
+    startTeam
   }
 })
 // Initiate socket.io here
