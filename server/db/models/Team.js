@@ -1,9 +1,9 @@
-var mongoose = require('mongoose')
+var db = require('../config')
 
-var TeamSchema = new mongoose.Schema({
+var TeamSchema = new db.Schema({
   teamName: {
     type: String
   }
 })
 
-module.exports = mongoose.model('Team', TeamSchema)
+module.exports = db.model('Team', TeamSchema)

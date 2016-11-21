@@ -1,11 +1,27 @@
 angular.module('directives.services', [])
 
-.factory('Requests', function ($http, $rootScope){
+.factory('State', function (){
+  var state = {
+    teamName: undefined,
+    lead: {
+      is: false
+    },
+    member: {
+      is: false,
+      name: null
+    },
+    directives: []
+  }
+
+  return state
+})
+.factory('Requests', function ($http, $rootScope, State){
 
   var startTeam = function (name){
-    $rootScope.team = name;
+    State.teamName = name;
+    console.log("start team fired")
     return $http({
-      method: 'POST',
+      method: 'GET',
       url: `/api/${name}`,
     })
   }
@@ -38,7 +54,7 @@ angular.module('directives.services', [])
     }
   };
 })
-.directive('dr-agentStatus', function (){
+.directive('drAgentStatus', function (){
   return {
     link: function(scope, elements, attrs){
       attrs.$set('background-color', scope.agent.status)

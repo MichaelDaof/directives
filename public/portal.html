@@ -1,5 +1,27 @@
 <div id="portal">
-  <h1>New portal</h1>
-  <p>{{test}}</p>
+  <header class="jumbotron">
+    <h1>Team: {{model.team}}</h1>
+  </header>
+  <article class="">
+    <h2>Leader</h2>
+    <p>
+      From the Command section, Team Leaders have everything they need to manage
+      team members and objectives.
+    </p>
+    <button type="button">Command Center</button>
+  </article>
+
+  <article class="">
+    <h2>Agents</h2>
+    <p>
+      Enter your name to add yourself to the list, or click your name and enter
+      your dashboard. You have everything you need to manage your objectives.
+    </p>
+    <form ng-submit="createAgent(newAgent)">
+      <input ng-model="newAgent" placeholder="Agent Name" />
+      <input type="submit"/>
+    </form>
+  </article>
+
 
 </div>

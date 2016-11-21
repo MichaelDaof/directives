@@ -5,6 +5,7 @@ module.exports = function router(app, io){
 
   // stand in for database
   // will be used in future as a cache for active teams along side DB
+  // consider Redis
   var teamLoad = {
     liveCount: 0, // dev: utility counter to monitor cache activity
     team: {
@@ -14,7 +15,9 @@ module.exports = function router(app, io){
     }
   };
 
+
   // TODO: build websocket connection tracker
+  // TODO: discover better modularity
   io.on('connection', function(socket){
     console.log('a user connected: ', socket.id);
     // Update all on every new connect
@@ -61,12 +64,9 @@ module.exports = function router(app, io){
   });
 
   app.get('/', function (req, res){
-    teamLoad.liveCount++
     res.sendFile(__dirname + '/public/index.html');
-    // cache monitor
-    console.log(teamLoad.liveCount)
   });
 
-  app.post('/api/:team', teamHandler.enter)
+  app.get('/api/:team', teamHandler.enter)
 
 };
