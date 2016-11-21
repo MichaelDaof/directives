@@ -6,6 +6,7 @@ angular.module('directives', [
   'ui.router'
   ])
 .config(function ($stateProvider, $urlRouterProvider) {
+  // TODO: consider using ui-router
   $stateProvider
     .state('enter', {
       url: '/',
