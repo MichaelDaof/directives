@@ -1,19 +1,22 @@
 angular.module('directives.enter', [])
 
-.controller('enterCtrl', function ($scope, $rootScope, $state, Requests){
+.controller('enterCtrl', function ($scope, $state, State, Requests){
 
   $scope.goTeam = function(name){
     console.log("onSubmit for team fired")
     Requests.startTeam(name)
       .then(res => {
-        console.log("Response: ", res)
+        return res.data
+      })
+      .then(data => {
+        State.teamName = data.teamName;
         $state.go('portal')
       })
   }
 
 })
-.controller('portalCtrl', function ($scope, $rootScope, $state, Requests){
-  $scope.test = "Hi everybody. This is a test."
+.controller('portalCtrl', function ($scope, State, $state, Requests){
+  $scope.teamName = State.teamName;
   $scope.createAgent = function (name){
     var agent = {
       name: $scope.newAgent,

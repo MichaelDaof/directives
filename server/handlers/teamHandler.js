@@ -7,7 +7,7 @@ module.exports = {
     }
     Team.findOne(reqTeam, function (err, team){
       if (err){
-        console.error("Team lookup faild: ", err)
+        console.error("Team lookup failed: ", err)
       } else {
         if (!team){
           Team.create(reqTeam, function (err, team){
