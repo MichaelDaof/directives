@@ -4,12 +4,23 @@
     color: #9F6000;
     background-color: #FEEFB3;
 }
+.isa_info {
+    color: #00529B;
+    background-color: #BDE5F8;
+}
 .notification {
-  font-size: large;
-  /*border: 5px;*/
+  font-size: medium;
+  border: 5px;
   padding: 3px;
 }
 /* retrieved from here: http://isabelcastillo.com/error-info-messages-css */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+ /* reconstruction banner */
+
 
 .enter {
   display: flex;
