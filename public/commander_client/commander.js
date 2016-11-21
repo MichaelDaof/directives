@@ -1,11 +1,16 @@
 angular.module('directives.commander', [])
 
-.controller('commanderCtrl', function ($scope, Requests, socket){
+.controller('commanderCtrl', function ($scope, Requests, socket, State){
 
   //// INIT /////////////
   socket.emit('getAgents')
   socket.emit('refresh')
   ///////////////////////
+
+  // map State to scope
+  // NOTE: consider two-way binding
+  $scope.teamName = State.teamName
+  //////////////////////
 
   // create jobs for all team
   $scope.addDirective = function (directive){

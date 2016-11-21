@@ -1,9 +1,15 @@
 // agent controller
 angular.module('directives.agent', [])
 
-.controller('agentCtrl', function ($scope, $rootScope, socket){
-
+.controller('agentCtrl', function ($scope, $rootScope, socket, State){
+  // init
   socket.emit('refresh')
+  //////////////////////
+
+  // map State to scope
+  // NOTE: consider two-way binding
+  $scope.teamName = State.teamName
+  //////////////////////
 
   // status update for accepting jobs
   $scope.claim = function (key, value){

@@ -31,6 +31,7 @@ module.exports = function router(app, io){
       teamLoad.team.directives[data] = data
       console.log('addDirective router ', teamLoad.team.directives)
       io.emit('directivesState', teamLoad.team.directives)
+      console.log(teamLoad)
     });
     // For agent client to claim from team-view
     socket.on('claimDirective', function (key){

@@ -1,14 +1,15 @@
 <!-- agent view -->
 <div class="container">
-	<h1>{{agent.name}}</h1>
+  <h1>Team: {{teamName}}</h1>
+	<h2>{{agent.name}}</h2>
 	<!-- fieldview div... big box if possible -->
 	<div class="hitlist" ng-style="{'background-color': agent.status}">
-    <h2>Your list of objectives</h2>
+    <h3>Your list of objectives</h3>
 		<h4 ng-click="complete()" class="btn btn-outline-success">{{agent.directive}}</h4>
 	</div>
 
 	<div class="field-view-agent">
-    <h2>Select an objective</h2>
+    <h3>Select an objective</h3>
 		<div ng-repeat="(key, value) in fieldView" ng-click="claim(key, value)" >
 			<div class="col-md-1 directive">{{value}}</div>
 		</div>
