@@ -22,7 +22,7 @@ angular.module('directives', [
     })
 
   $urlRouterProvider.otherwise('/')
-  
+
 })
 .controller('masterCtrl', function ($rootScope, socket){
   $rootScope.$on('$stateChangeStart', function (event){
